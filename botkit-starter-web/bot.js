@@ -43,7 +43,7 @@ if (process.env.MONGO_URI) {
 }
 
 // Create the Botkit controller, which controls all instances of the bot.
-var controller = Botkit.anywhere(bot_options);
+var controller = Botkit.socketbot(bot_options);
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
