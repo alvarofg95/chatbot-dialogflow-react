@@ -7,6 +7,7 @@ export default class InputBox extends Component {
     this.input = React.createRef();
     // BIND
     this.sendMessage = this.sendMessage.bind(this);
+    this.checkEnterPressed = this.checkEnterPressed.bind(this);
   }
 
   sendMessage() {
@@ -16,11 +17,25 @@ export default class InputBox extends Component {
     this.input.current.value = null;
   }
 
+  checkEnterPressed(e) {
+    if (e.keyCode === 13 && e.shiftKey === false) {
+      this.sendMessage();
+    }
+  }
+
   render() {
     return (
-      <div>
-        <input ref={this.input} type="text" onChange={this.changeTextState} />
-        <button onClick={this.sendMessage}>Send</button>
+      <div className="inputText">
+        <input
+          ref={this.input}
+          type="text"
+          onChange={this.changeTextState}
+          onKeyDown={this.checkEnterPressed}
+          placeholder="Introducir texto"
+        />
+        <button onClick={this.sendMessage} title="Enviar">
+          <img width="40" src="/send-green.svg" alt="Enviar" />
+        </button>
       </div>
     );
   }

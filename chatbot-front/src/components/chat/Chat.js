@@ -9,8 +9,9 @@ export default class Chat extends Component {
     this.state = {
       messages: []
     };
-
+    this.messages = React.createRef();
     this.sendMessage = this.sendMessage.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   sendMessage(message) {
@@ -19,18 +20,28 @@ export default class Chat extends Component {
       return { ...prevState };
     });
     sendMessageToDF(message).then(result => {
-      console.log({ setState: result });
-      this.setState(prevState => {
-        prevState.messages.push(result);
-        return { ...prevState };
-      });
+      this.setState(
+        prevState => {
+          prevState.messages.push(result);
+          return { ...prevState };
+        },
+        () => this.scrollToBottom()
+      );
     });
+  }
+
+  scrollToBottom() {
+    if (this.messages && this.messages.current && this.messages.current) {
+      this.messages.current.scrollTop = this.messages.current.scrollHeight;
+    }
   }
 
   render() {
     return (
-      <div>
-        <MessageList messageList={this.state.messages} />
+      <div className="chatContainer">
+        <div ref={this.messages} className="messageList">
+          <MessageList messageList={this.state.messages} />
+        </div>
         <InputText sendMessage={this.sendMessage} />
       </div>
     );

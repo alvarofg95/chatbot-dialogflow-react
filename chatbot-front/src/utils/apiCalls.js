@@ -13,7 +13,6 @@ const sendMessageToDF = async (text, type = 'message') => {
     })
   });
   const result = await response.json();
-  console.log({ result });
   return { user: 'bot', message: result.text };
 };
 

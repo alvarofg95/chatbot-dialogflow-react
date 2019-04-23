@@ -1,33 +1,96 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.container > h1 {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.chatContainer {
+  border: 1px solid;
+  padding: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.messageList {
+  min-height: 450px;
+  max-height: 450px;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  -ms-overflow-style: none;
+}
+
+.message-left {
+  text-align: left;
+  background-color: #dfe4e6;
+  padding: 6px;
+  padding-left: 20px;
+  border-radius: 10px;
+  width: 85%;
+  margin-right: auto;
+}
+
+.message-right {
+  text-align: right;
+  background-color: #b0e2f0;
+  padding: 6px;
+  padding-right: 20px;
+  border-radius: 10px;
+  width: 85%;
+  margin-left: auto;
+}
+
+.inputText {
+  border-top: 1px solid;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 70px;
 }
 
-.App-link {
-  color: #61dafb;
+.inputText > input {
+  width: 75%;
+  min-height: 30px;
+  border-style: none;
+  padding: 10px;
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputText > input:focus {
+  outline: none;
+}
+
+.inputText > button {
+  width: 25%;
+  background: none;
+  border-style: none;
+  cursor: pointer;
+}
+
+.inputText > button:focus {
+  outline: none;
+}
+
+.inputText > button > img {
+  margin-top: 10px;
+}
+
+.inputText > button > img:focus {
+  outline: none;
 }

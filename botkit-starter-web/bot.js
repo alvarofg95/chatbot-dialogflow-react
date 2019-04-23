@@ -23,13 +23,13 @@ var debug = require('debug')('botkit:main');
 
 // DIALOG FLOW
 const dialogflowMiddleware = require('botkit-middleware-dialogflow')({
-  keyFilename: './starterbot-8881f-ea35817c9e25.json',  // service account private key file from Google Cloud Console
+  keyFilename: './test-bot-88041-40d52d3a6459.json',  // service account private key file from Google Cloud Console
 });
 
 
 var bot_options = {
   replyWithTyping: true,
-  typingDelayFactor: 1.3
+  typingDelayFactor: 2.3
 };
 
 // Use a mongo database if specified, otherwise store in a JSON file local to the app.
