@@ -23,9 +23,8 @@ var debug = require('debug')('botkit:main');
 
 // DIALOG FLOW
 const dialogflowMiddleware = require('botkit-middleware-dialogflow')({
-  keyFilename: './test-bot-88041-40d52d3a6459.json',  // service account private key file from Google Cloud Console
+  keyFilename: './test-bot-88041-40d52d3a6459.json' // service account private key file from Google Cloud Console
 });
-
 
 var bot_options = {
   replyWithTyping: true,
@@ -86,4 +85,3 @@ controller.on('message_received', function(bot, message) {
   console.log(message);
   bot.reply(message, message.fulfillment.text);
 });
-

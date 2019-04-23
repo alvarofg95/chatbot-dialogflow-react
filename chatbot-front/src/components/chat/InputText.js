@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 export default class InputBox extends Component {
   constructor(props) {
     super(props);
-    // REFS
     this.input = React.createRef();
-    // BIND
     this.sendMessage = this.sendMessage.bind(this);
     this.checkEnterPressed = this.checkEnterPressed.bind(this);
   }
