@@ -3,6 +3,17 @@ import MessageList from './MessageList';
 import InputText from './InputText';
 import sendMessageToDF from '../../utils/apiCalls';
 
+const MESSAGES_DEFAULT = [
+  {
+    user: 'bot',
+    message: '¡Hola!, soy un asistente virtual'
+  },
+  {
+    user: 'bot',
+    message: 'Espero que te sirva de ayuda'
+  }
+];
+
 export default class Chat extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +48,12 @@ export default class Chat extends Component {
   }
 
   render() {
+    const messages =
+      this.state.messages && this.state.messages.length ? this.state.messages : MESSAGES_DEFAULT;
     return (
       <div className="chatContainer">
         <div ref={this.messages} className="messageList">
-          <MessageList messageList={this.state.messages} />
+          <MessageList messageList={messages} />
         </div>
         <InputText sendMessage={this.sendMessage} />
       </div>
