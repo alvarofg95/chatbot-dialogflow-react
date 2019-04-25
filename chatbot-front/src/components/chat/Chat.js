@@ -51,11 +51,14 @@ export default class Chat extends Component {
     const messages =
       this.state.messages && this.state.messages.length ? this.state.messages : MESSAGES_DEFAULT;
     return (
-      <div className="chatContainer">
-        <div ref={this.messages} className="messageList">
-          <MessageList messageList={messages} />
+      <div>
+        <span className="botTitle">Chatbot de Álvaro</span>
+        <div className="chatContainer">
+          <div ref={this.messages} className="messageList">
+            <MessageList messageList={messages} />
+          </div>
+          <InputText sendMessage={this.sendMessage} />
         </div>
-        <InputText sendMessage={this.sendMessage} />
       </div>
     );
   }

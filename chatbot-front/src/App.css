@@ -11,6 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.botTitle {
+  text-align: center;
+  display: block;
+  border: 1px solid;
+  border-bottom: none;
+}
+
 .container {
   width: 50%;
   margin: 0 auto;
@@ -93,4 +100,11 @@ code {
 
 .inputText > button > img:focus {
   outline: none;
+}
+
+@media (max-width: 550px) {
+  .container {
+    width: 100%;
+    height: 100%;
+  }
 }
