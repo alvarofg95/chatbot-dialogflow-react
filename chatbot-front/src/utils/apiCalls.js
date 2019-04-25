@@ -1,5 +1,5 @@
 const sendMessageToDF = async (text, type = 'message') => {
-  const response = await fetch('http://localhost:3001/botkit/receive', {
+  const response = await fetch('https://dialogflowbot-alvarofg95.herokuapp.com/botkit/receive', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
