@@ -33,8 +33,6 @@ code {
 }
 
 .messageList {
-  min-height: 450px;
-  max-height: 450px;
   overflow: hidden;
   overflow-y: auto;
   margin-bottom: 20px;
