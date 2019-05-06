@@ -51,8 +51,12 @@ export default class Chat extends Component {
     return (
       <div>
         <span className="botTitle">Chatbot de Álvaro</span>
-        <div className="chatContainer" style={{ minHeight: SCREEN_HEIGHT, maxHeight: SCREEN_HEIGHT}}>
-          <div ref={this.messages} style={{ minHeight: SCREEN_HEIGHT, maxHeight: SCREEN_HEIGHT}} className="messageList">
+        <div className="chatContainer">
+          <div
+            ref={this.messages}
+            style={{ minHeight: SCREEN_HEIGHT - 160, maxHeight: SCREEN_HEIGHT - 160 }}
+            className="messageList"
+          >
             <MessageList messageList={this.state.messages} />
           </div>
           <InputText sendMessage={this.sendMessage} />

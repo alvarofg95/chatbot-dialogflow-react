@@ -56,7 +56,7 @@ require(__dirname + '/components/plugin_identity.js')(controller);
 // Open the web socket server
 controller.openSocketServer(controller.httpserver);
 
-// DIALOGFLOW
+// DIALOGFLOW (MIO)
 controller.middleware.receive.use(dialogflowMiddleware.receive);
 
 // Start the bot brain in motion!!/
