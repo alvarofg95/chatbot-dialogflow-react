@@ -82,6 +82,5 @@ function usage_tip() {
 // Receive intents
 // give the bot something to listen for.
 controller.on('message_received', function(bot, message) {
-  console.log(message);
   bot.reply(message, message.fulfillment.text);
 });
