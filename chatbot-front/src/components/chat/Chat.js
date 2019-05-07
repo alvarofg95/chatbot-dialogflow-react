@@ -54,7 +54,7 @@ export default class Chat extends Component {
         <div className="chatContainer">
           <div
             ref={this.messages}
-            style={{ minHeight: SCREEN_HEIGHT - 160, maxHeight: SCREEN_HEIGHT - 160 }}
+            style={{ minHeight: SCREEN_HEIGHT - 125, maxHeight: SCREEN_HEIGHT - 125 }}
             className="messageList"
           >
             <MessageList messageList={this.state.messages} />
