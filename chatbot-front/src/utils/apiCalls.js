@@ -1,6 +1,6 @@
-const sendMessageToDF = async (text, type = 'message') => {
+const sendMessageToDF = async (message, type = 'message') => {
   try {
-    const response = await fetch('https://dialogflowbot-alvarofg95.herokuapp.com/botkit/receive', {
+    const response = await fetch('http://localhost:3002/send-message', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -8,14 +8,13 @@ const sendMessageToDF = async (text, type = 'message') => {
       },
       body: JSON.stringify({
         type,
-        text,
-        user: 'user-id',
-        channel: 'socket'
+        message
       })
     });
     const result = await response.json();
     return { user: 'bot', message: result.text };
   } catch (err) {
+    console.log({ err });
     return { user: 'bot', message: 'Parece que tenemos problemas para hablar, lo siento mucho' };
   }
 };
