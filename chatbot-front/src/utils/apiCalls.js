@@ -1,4 +1,4 @@
-const sendMessageToDF = async (message, type = 'message') => {
+export default async (message, type = 'message') => {
   try {
     const response = await fetch('http://localhost:3002/send-message', {
       method: 'POST',
@@ -18,5 +18,3 @@ const sendMessageToDF = async (message, type = 'message') => {
     return { user: 'bot', message: 'Parece que tenemos problemas para hablar, lo siento mucho' };
   }
 };
-
-export default sendMessageToDF;
