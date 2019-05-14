@@ -30,7 +30,7 @@ export default class Chat extends Component {
       prevState.messages.push({ message, user: 'human' });
       return { ...prevState };
     });
-    sendMessageToDF(message).then(result => {
+    sendMessageToDF(message, 'message', 0).then(result => {
       this.setState(
         prevState => {
           prevState.messages.push(result);

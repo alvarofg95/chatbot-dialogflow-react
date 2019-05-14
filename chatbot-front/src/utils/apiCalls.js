@@ -1,4 +1,4 @@
-export default async (message, type = 'message') => {
+export default async (message, type = 'message', maxLength = 0) => {
   try {
     const response = await fetch('http://localhost:3002/send-message', {
       method: 'POST',
@@ -8,7 +8,8 @@ export default async (message, type = 'message') => {
       },
       body: JSON.stringify({
         type,
-        message
+        message,
+        maxLength
       })
     });
     const result = await response.json();

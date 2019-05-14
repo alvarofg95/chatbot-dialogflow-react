@@ -24,13 +24,16 @@ server.use(function(req, res, next) {
   next();
 });
 server.post('/send-message', (req, res) => {
+  const {
+    body: { message, maxLength = 0 }
+  } = req;
   // The text query request.
   const request = {
     session: sessionPath,
     queryInput: {
       text: {
         // The query to send to the dialogflow agent
-        text: req.body.message,
+        text: message,
         // The language used by the client (en-US)
         languageCode: 'es-ES'
       }
@@ -39,7 +42,9 @@ server.post('/send-message', (req, res) => {
   // Send request and log result
   sessionClient.detectIntent(request).then(responses => {
     const result = responses[0].queryResult;
-    return res.json({ text: result.fulfillmentText });
+    return res.json({
+      text: maxLength ? result.fulfillmentText.substring(0, maxLength) : result.fulfillmentText
+    });
   });
 });
 
