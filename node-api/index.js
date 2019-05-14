@@ -1,3 +1,4 @@
+require('dotenv').config();
 const dialogflow = require('dialogflow');
 const uuid = require('uuid');
 const express = require('express');
@@ -49,5 +50,5 @@ server.post('/send-message', (req, res) => {
 });
 
 server.listen(process.env.PORT || 3002, () => {
-  console.log('Server is up and running at port 3002...');
+  console.log(`Server is up and running at port ${process.env.PORT || 3002}`);
 });
